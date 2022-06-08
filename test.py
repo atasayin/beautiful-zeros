@@ -17,6 +17,6 @@ test10 = [90, 16, [46, 110, 37, 186, 121, 140, 124, 22, 81, 135, 11, 193, 68,
 198, 108, 102, 163, 79, 6, 48, 8, 60, 143, 11, 157, 84, 129, 14, 103, 162, 94, 
 158, 141, 106, 109, 175, 190, 35, 189]]
 
-n,k,cost = test1
-result = main.beautifulZeros(n,k,cost)
+n,k,cost = test6
+result, sol_idx = main.beautifulZeros(n,k,cost)
 print(result)

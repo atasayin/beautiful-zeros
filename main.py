@@ -1,28 +1,31 @@
 import sys
 
-n, k = [int(x) for x in input().split()]
+def beautifulZeros(n, k, Cost):
+    result = None
+    sol_idx = None
 
-Cost = [int(x) for x in input().split()]
+    for i in range(0, k+1):
+        if (n - i -1) % (2*k + 1) <= k:
+            cost_i = 0
+            for j in range(i, n, 2*k+1):
+                cost_i = cost_i + Cost[j]
+            if result is None:
+                result = cost_i
+                sol_idx = i
+            else:
+                result = min(result, cost_i)
+                if result == cost_i:
+                    sol_idx = i
 
-first_idx = (n - k -1) % (2*k + 1)
+    return result, sol_idx 
 
-result = None
-sol_idx = None
+if __name__ == "__main__":
+    n, k = [int(x) for x in input().split()]
+    Cost = [int(x) for x in input().split()]
 
-for i in range(first_idx, k+1):
-    cost_i = 0
-    for j in range(i, n, 2*k+1):
-        cost_i = cost_i + Cost[j]
-    if result is None:
-        result = cost_i
-        sol_idx = i
-    else:
-        result = min(result, cost_i)
-        if result == cost_i:
-            sol_idx = i 
+    result, sol_idx = beautifulZeros(n, k, Cost)
 
-print(result)
+    print(result)
 
-# check if there are arguments
-if len(sys.argv) > 1:
-    print(list(range(sol_idx, n, 2*k+1)))
+    if len(sys.argv) > 1:
+        print(list(range(sol_idx, n, 2*k+1)))
