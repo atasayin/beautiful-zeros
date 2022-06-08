@@ -8,7 +8,6 @@ first_idx = (n - k -1) % (2*k + 1)
 
 result = None
 sol_idx = None
-Solution = []
 
 for i in range(first_idx, k+1):
     cost_i = 0
@@ -26,6 +25,4 @@ print(result)
 
 # check if there are arguments
 if len(sys.argv) > 1:
-    for j in range(sol_idx, n, 2*k+1):
-        Solution.append(j)
-    print(Solution)
+    print(list(range(sol_idx, n, 2*k+1)))
