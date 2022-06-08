@@ -1,4 +1,4 @@
-import main
+from main import beautifulZeros 
 
 test1 = [3,1,[1,1,1]]
 test2 = [14, 2,[1,2,2,2,2,2,2,2,2,2,2,2,2,2]]
@@ -17,6 +17,12 @@ test10 = [90, 16, [46, 110, 37, 186, 121, 140, 124, 22, 81, 135, 11, 193, 68,
 198, 108, 102, 163, 79, 6, 48, 8, 60, 143, 11, 157, 84, 129, 14, 103, 162, 94, 
 158, 141, 106, 109, 175, 190, 35, 189]]
 
-n,k,cost = test6
-result, sol_idx = main.beautifulZeros(n,k,cost)
-print(result)
+testArray = [test1,test2,test3,test4,test5,test6,test7,test8,test9,test10]
+i = 1
+for test in testArray:
+    n,k,cost = test
+    result, sol_idx = beautifulZeros(n,k,cost)
+    print(f"Test{i} => min cost: {result}, solution: {list(range(sol_idx, n, 2*k+1))}")
+    i = i + 1
+
+
